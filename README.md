@@ -5,12 +5,8 @@ Job Interview assignment.
 
 ### Prerequisites
 
-You need to have installed:
-
-```
 NodeJS
 MySQL database server
-```
 
 ### Installing
 
@@ -21,13 +17,14 @@ Usage:
 git clone https://github.com/makz90/usersandgroups
 npm install
 ```
-3. Enter your database details in server.js
+2. Enter your database details in server.js
 ```
 host: 'localhost',
 user: 'testuser',
 password: 'testpassword'
 ```
-4. Start server:
+3. Start server:
 ```
 node server.js
 ```
+4. Visit http://localhost:3000/
