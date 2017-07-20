@@ -1,0 +1,39 @@
+<div ng-repeat="group in groups" style="border-bottom: 1px solid #ccc; padding: 8px;">
+    <span class="text-muted" data-toggle="collapse" data-target="#collapse{{group.id}}" style="cursor: pointer;">
+        {{group.name | uppercase}} ({{group.users.length}})
+    </span>
+
+    <button ng-click="deleteGroup(group.id)" type="button" class="close" data-dismiss="alert">
+        <span class="glyphicon glyphicon-trash"></span>
+    </button>
+    <button type="button" class="close" style="margin: 0 10px"
+            data-toggle="modal" data-target="#groupEdit{{group.id}}">
+        <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+
+    <div id="collapse{{group.id}}" class="collapse" ng-class="groupClasses[group.id]" aria-expanded="true">
+
+        <div ng-repeat="_user in group.users">
+            {{_user.first_name}} {{_user.last_name}} ({{_user.login}})<span aria-hidden="true" style="cursor: pointer;"
+                                                                            ng-click="removeUserFromGroup(_user.id, group.id)"> ×</span>
+        </div>
+
+        <form autocomplete="off">
+
+            <button type="submit" ng-click="addUserToGroup(selectedUser.originalObject.id, group.id);">Add
+            </button>
+
+            <angucomplete pause="100" class="pull-left"
+                   selectedobject="selectedUser"
+                   localdata="users"
+                   searchfields="login,first_name,last_name"
+                   titlefield="first_name,last_name"
+                   descriptionfield="login"
+                   minlength="1"
+                   style="height: 21px" placeholder="Search for user" >
+
+
+        </form>
+    </div>
+
+</div>

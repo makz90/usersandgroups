@@ -1,0 +1,41 @@
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Login</th>
+        <th>Password</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of birth</th>
+        <th>Groups</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="user in users">
+        <td>{{user.id}}</td>
+        <td>{{user.login}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.birth_date | date:'yyyy-MM-dd'}}</td>
+        <td>
+            <button type="button" class="btn btn-xs btn-default"
+                    data-toggle="modal" data-target="#userDialog{{user.id}}">Show</button>
+
+        </td>
+        <td>
+            <button type="button" class="close"
+                    data-toggle="modal" data-target="#userEdit{{user.id}}">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+        </td>
+        <td>
+            <button type="button" class="close" data-dismiss="alert" ng-click="deleteUser(user.id)">
+                <span aria-hidden="true">×</span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

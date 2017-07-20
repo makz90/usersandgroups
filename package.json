@@ -1,0 +1,11 @@
+{
+  "name": "mkz-app",
+  "version": "0.0.1",
+  "dependencies":
+  {
+    "express": "^4.10.0",
+    "mysql": "^2.5.0",
+    "body-parser": "~1.5.2",
+    "method-override": "~2.1.2"
+  }
+}

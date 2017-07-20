@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--style-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--my style modifications-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="libs/angucomplete/angucomplete.css">
+
+    <!--libraries-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-messages.min.js"></script>
+
+
+    <!--app script-->
+    <script src="app.js"></script>
+    <script src="libs/angucomplete/angucomplete.js"></script>
+
+</head>
+<body ng-app="myApp">
+
+<div class="container">
+
+    <h1>Admin Dashboard</h1>
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#users">Users</a></li>
+        <li><a data-toggle="tab" href="#groups">Groups</a></li>
+    </ul>
+
+    <div class="tab-content" ng-controller="mainController" ng-init="getAllData()">
+
+        <!--error message-->
+        <div class="alert alert-danger alert-dismissable" ng-show="errorMessage" ng-cloak
+                style="margin: 10px 0;">
+            <a href="#" class="close" aria-label="close" ng-click="errorMessage='';">&times;</a>
+            <strong>Error:</strong> {{errorMessage}}
+        </div>
+
+        <!--Modal windows-->
+        <div ng-include="'views/modals/show-groups.html'"></div>
+        <div ng-include="'views/modals/edit-group.html'"></div>
+        <div ng-include="'views/modals/edit-user.html'"></div>
+
+        <!--USERS TAB-->
+        <div ng-cloak id="users" class="tab-pane fade in active">
+
+            <div ng-include="'views/add-user.html'"></div>
+
+            <div ng-include="'views/users.html'"></div>
+
+        </div>
+
+        <!--GROUPS TAB-->
+        <div ng-cloak id="groups" class="tab-pane fade">
+
+            <br>
+
+            <div ng-include="'views/add-group.html'"></div>
+
+            <br>
+
+            <div ng-include="'views/groups.html'"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
