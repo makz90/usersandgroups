@@ -5,8 +5,7 @@ Job Interview assignment.
 
 ### Prerequisites
 
-NodeJS
-MySQL database server
+NodeJS installed, MySQL database server running
 
 ### Installing
 
